@@ -8,12 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var name = "Öznur Kandakoğlu"
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text(name)
+                .font(.largeTitle)
+                .padding()
+            Button(action: {
+                self.name = "Öznur Kandak"
+            }, label: {
+                Text("ismi değiştir")
+            })
+            TextField("Değiştirmek istediğiniz ismi giriniz.", text: self.$name)
+                .frame(width: UIScreen.main.bounds.width * 0.7, height: 100, alignment: .center)
+                .foregroundColor(.green)
+                .multilineTextAlignment(.center)
+            
+            
+
         }
         .padding()
     }
@@ -24,3 +38,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
